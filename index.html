@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gif Generator</title>
+</head>
+<body>
+
+    <header>   
+        <div class="nav-bar">    
+            <h1 class="title">GIF GENERATOR</h1>
+
+            <div class="search-container">        
+                <input type="text" name="search" id="search-bar">
+                <img class="loupe" src="./icon/search.svg" alt="Search Logo">
+            </div>
+
+            <img class="github" src="./icon/GitHub-Logo.wine.svg" alt="GitHub">
+        </div>
+    </header>
+
+    
+    <section>
+        <div class="gif-tableau">        
+            <img class="gif" src="" alt="">
+        </div>
+    </section>
+
+
+
+    <script>
+        let searchBar = document.querySelector('#search-bar');
+        let searchBtn = document.querySelector('.loupe');
+        // let btn = document.querySelector('button');
+
+        const img = document.querySelector('.gif');
+        const para = document.querySelector('.para');
+
+        searchBtn.addEventListener('click', () => {
+            
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=1oUYRS4PQmiOZlnbyawKUEKUUFUcNcZj&s=${searchBar.value}`, {mode : "cors"})
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+                console.log(response.data.images.original.url);
+            })
+            .catch((e) => {
+                img.src = 'https://media0.giphy.com/media/lqFHf5fYMSuKcSOJph/giphy.gif?cid=f46307b3ayh8y08vme4hri2uwo8na7fp1zidqwao8gx3w3v5&rid=giphy.gif&ct=g'
+;
+                console.log(e);
+            })
+        })
+
+    </script>
+
+</body>
+</html>
