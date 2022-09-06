@@ -34,8 +34,6 @@
     <script>
         let searchBar = document.querySelector('#search-bar');
         let searchBtn = document.querySelector('.loupe');
-        // let btn = document.querySelector('button');
-
         const img = document.querySelector('.gif');
         const para = document.querySelector('.para');
 
@@ -47,12 +45,9 @@
             })
             .then(function(response) {
                 img.src = response.data.images.original.url;
-                console.log(response.data.images.original.url);
             })
             .catch((e) => {
-                img.src = 'https://media0.giphy.com/media/lqFHf5fYMSuKcSOJph/giphy.gif?cid=f46307b3ayh8y08vme4hri2uwo8na7fp1zidqwao8gx3w3v5&rid=giphy.gif&ct=g'
-;
-                console.log(e);
+                img.src = 'https://media0.giphy.com/media/lqFHf5fYMSuKcSOJph/giphy.gif?cid=f46307b3ayh8y08vme4hri2uwo8na7fp1zidqwao8gx3w3v5&rid=giphy.gif&ct=g';
             })
         })
 
