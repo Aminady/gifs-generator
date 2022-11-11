@@ -32,7 +32,31 @@
 
 
 
+<<<<<<< HEAD
     <script src="index.js"></script>
+=======
+    <script>
+        let searchBar = document.querySelector('#search-bar');
+        let searchBtn = document.querySelector('.loupe');
+        const img = document.querySelector('.gif');
+        const para = document.querySelector('.para');
+
+        searchBtn.addEventListener('click', () => {
+            
+            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=1oUYRS4PQmiOZlnbyawKUEKUUFUcNcZj&s=${searchBar.value}`, {mode : "cors"})
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(response) {
+                img.src = response.data.images.original.url;
+            })
+            .catch((e) => {
+                img.src = 'https://media0.giphy.com/media/lqFHf5fYMSuKcSOJph/giphy.gif?cid=f46307b3ayh8y08vme4hri2uwo8na7fp1zidqwao8gx3w3v5&rid=giphy.gif&ct=g';
+            })
+        })
+
+    </script>
+>>>>>>> 5a81b3f1bccca9c6a5e326c9df29367d2f988bab
 
 </body>
 </html>
