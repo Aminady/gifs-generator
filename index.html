@@ -18,45 +18,21 @@
                 <img class="loupe" src="./icon/search.svg" alt="Search Logo">
             </div>
 
-            <img class="github" src="./icon/GitHub-Logo.wine.svg" alt="GitHub">
+            <a href="https://github.com/Aminady" target="_blank" rel="noopener noreferrer"><img class="github" src="./icon/GitHub-Logo.wine.svg" alt="GitHub"></a> 
         </div>
     </header>
 
     
-    <section>
+    <section class="main-container">
         <div class="gif-tableau">        
             <img class="gif" src="" alt="">
         </div>
+        <div class="trends"></div>
     </section>
 
 
 
-    <script>
-        let searchBar = document.querySelector('#search-bar');
-        let searchBtn = document.querySelector('.loupe');
-        // let btn = document.querySelector('button');
-
-        const img = document.querySelector('.gif');
-        const para = document.querySelector('.para');
-
-        searchBtn.addEventListener('click', () => {
-            
-            fetch(`https://api.giphy.com/v1/gifs/translate?api_key=1oUYRS4PQmiOZlnbyawKUEKUUFUcNcZj&s=${searchBar.value}`, {mode : "cors"})
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(response) {
-                img.src = response.data.images.original.url;
-                console.log(response.data.images.original.url);
-            })
-            .catch((e) => {
-                img.src = 'https://media0.giphy.com/media/lqFHf5fYMSuKcSOJph/giphy.gif?cid=f46307b3ayh8y08vme4hri2uwo8na7fp1zidqwao8gx3w3v5&rid=giphy.gif&ct=g'
-;
-                console.log(e);
-            })
-        })
-
-    </script>
+    <script src="index.js"></script>
 
 </body>
 </html>
